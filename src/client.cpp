@@ -31,11 +31,11 @@ struct simple_source : ppl::source<int> {
 		return "SimpleSource";
 	}
 
-	auto poll_next() -> pipe::Poll override {
+	auto poll_next() -> ppl::poll override {
 		if (current_value >= 10)
-			return pipe::Poll::Closed;
+			return ppl::poll::closed;
 		++current_value;
-		return pipe::Poll::Ready;
+		return ppl::poll::Ready;
 	}
 
 	auto value() const -> const int& override {
@@ -54,7 +54,7 @@ struct simple_source : ppl::source<int> {
 
 // a simple sink that writes the numbers to std::cout
 struct simple_sink : ppl::sink<int> {
-	const ppl::Producer<int>* slot0 = nullptr;
+	const ppl::producer<int>* slot0 = nullptr;
 
 	simple_sink() = default;
 
@@ -62,9 +62,9 @@ struct simple_sink : ppl::sink<int> {
 		return "SimpleSink";
 	}
 
-	void connect(const pipe::node* src, int slot) override {
+	void connect(const ppl::node* src, int slot) override {
 		if (slot == 0) {
-			slot0 = static_cast<const ppl::producer<int>*>(source);
+			slot0 = static_cast<const ppl::producer<int>*>(src);
 		}
 	}
 
