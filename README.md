@@ -320,7 +320,7 @@ A `component` should:
 - publish the type it produces through a public member type `output_type`;
 - be derived from the `node` type;
 - also be derived from the appropriate `producer` type;
-- not ne an abstract class (i.e., we can construct it).
+- not be an abstract class (i.e., we can construct it).
 
 #### 3.6.1 Types
 
@@ -377,7 +377,7 @@ A `component` should:
     If the provided nodes are not connected, nothing is done.
   - **Throws**: a `pipeline_error` if either handle is invalid.
 
-- `auto get_dependents(node_id source) const -> std::vector<std::pair<node_id, int>>;`
+- `auto get_dependencies(node_id source) const -> std::vector<std::pair<node_id, int>>;`
   - **Returns**: A list of all nodes depending on `source`.
     Each element is a pair `(node, slot)`, where `source`'s output
     is connected to the given `slot` for the `node`.
@@ -502,7 +502,7 @@ You must:
 
 You must not:
 - Write to any files that aren't provided in the repo.
-- Add a main function to filtered_string_view.cpp
+- Add a main function to pipeline.cpp
 
 ### 3.11. Example
 
