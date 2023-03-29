@@ -1,6 +1,7 @@
 # Assignment 3: A dataflow pipeline
 
 ## Changelog
+- (2023-03-29): Fixed the "getting started" link
 - (2023-03-27): Initial Release.
 
 
@@ -541,7 +542,7 @@ To that end, here are some tips for dealing with some commong problems:
 
 If you haven't already done so, clone this repository
 ```
-$ git clone gitlab@gitlab.cse.unsw.edu.au:z5555555/23T1/ass3
+$ git clone gitlab@gitlab.cse.unsw.EDU.AU:COMP6771/23T1/students/z5555555/ass3.git
 ```
 (Note: Replace z5555555 with your zid)
 
