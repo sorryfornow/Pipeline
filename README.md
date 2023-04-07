@@ -1,6 +1,7 @@
 # Assignment 3: A dataflow pipeline
 
 ## Changelog
+- (2023-04-07): Added one more case for throwing in `pipeline::connect`
 - (2023-03-29): Fixed the "getting started" link
 - (2023-03-27): Initial Release.
 
@@ -370,7 +371,8 @@ A `component` should:
   - Connect `source`'s output to `dest`'s input for the given `slot`.
   - **Throws**: in order, if either handle is invalid,
     the destination node's slot is already full,
-    or the source output type does not match the destination input type,
+    the source output type does not match the destination input type,
+    the slot number indicated by `slot` does not exist,
     throw the appropriate `pipeline_error`.
 
 - `void disconnect(node_id source, node_id dest);`
