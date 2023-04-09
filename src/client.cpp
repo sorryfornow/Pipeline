@@ -35,7 +35,7 @@ struct simple_source : ppl::source<int> {
 		if (current_value >= 10)
 			return ppl::poll::closed;
 		++current_value;
-		return ppl::poll::Ready;
+		return ppl::poll::ready;
 	}
 
 	auto value() const -> const int& override {
@@ -70,7 +70,7 @@ struct simple_sink : ppl::sink<int> {
 
 	auto poll_next() -> ppl::poll override {
 		std::cout << slot0->value() << '\n';
-		return ppl::poll::Ready;
+		return ppl::poll::ready;
 	}
 };
 
