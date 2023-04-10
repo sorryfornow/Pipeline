@@ -1,6 +1,12 @@
 # Assignment 3: A dataflow pipeline
 
 ## Changelog
+- (2023-04-10): Added some clarifications:
+  - output format for `operator<<` when a node is connected to another node through more than one slot.
+  - Some rules about when a pipeline is valid or not.
+  - Some fixed up wording for `pipeline::disconnect()` and `pipeline::get_dependencies()` relating to only affecting immediately connected nodes.
+  - Fixed up wording for `run()` begin equivalent to `while(!step()) {}`.
+  - Adding a small note about `concrete_node`'s requirements.
 - (2023-04-07): Added one more case for throwing in `pipeline::connect`
 - (2023-03-29): Fixed the "getting started" link
 - (2023-03-27): Initial Release.
@@ -322,6 +328,7 @@ A `component` should:
 - publish the type it produces through a public member type `output_type`;
 - be derived from the `node` type;
 - also be derived from the appropriate `producer` type;
+  - note that the requirement that a component be derived from `node` is automatically met if this requirement is met.
 - not be an abstract class (i.e., we can construct it).
 
 #### 3.6.1 Types
@@ -330,6 +337,7 @@ A `component` should:
   - An opaque handle to a node in the pipeline.
     May be any type of your choice as long as it is ['regular'][https://en.cppreference.com/w/cpp/concepts/regular];
     that is, copyable, default-constructible, and equality-comparable.
+    **Note**: we expect to be able to create a reasonable number of nodes. Your handle should be able to support at least 256 nodes in the pipeline.
   - We refer to a `node_id` as "invalid" if it is not a valid handle;
     that is, it cannot be used to refer to a node that is currently in the pipeline.
 
@@ -376,12 +384,12 @@ A `component` should:
     throw the appropriate `pipeline_error`.
 
 - `void disconnect(node_id source, node_id dest);`
-  - Remove all connections between the given two nodes.
+  - Remove all immediate connections between the given two nodes.
     If the provided nodes are not connected, nothing is done.
   - **Throws**: a `pipeline_error` if either handle is invalid.
 
 - `auto get_dependencies(node_id source) const -> std::vector<std::pair<node_id, int>>;`
-  - **Returns**: A list of all nodes depending on `source`.
+  - **Returns**: A list of all nodes immediately depending on `source`.
     Each element is a pair `(node, slot)`, where `source`'s output
     is connected to the given `slot` for the `node`.
   - **Throws**: A `pipeline_error` if `source` is invalid.
@@ -399,6 +407,8 @@ That is, `Y::input_type` is `std::tuple<>`.
   - Validate that this is a sensible pipeline. In particular:
     - All source slots for all nodes must be filled.
     - All non-sink nodes must have at least one dependent.
+    - There is at least 1 source node.
+    - There is at least 1 sink node.
     - There are no cycles.
   - **Returns**: `true` if all above conditions hold, and `false` otherwise.
 
@@ -421,7 +431,7 @@ That is, `Y::input_type` is `std::tuple<>`.
 - `void run();`
   - **Preconditions**: `is_valid()` is `true`.
   - Run the pipeline until all sink nodes are closed.
-    Equivalent to `while (step()) {}`, but potentially more efficient.
+    Equivalent to `while(!step()) {}`, but potentially more efficient.
 
 #### 3.6.6 Visual Representation
 
@@ -444,6 +454,7 @@ then a blank line,
 then a newline-separated sequence of edges (again, each indented two spaces),
 and finally end with a single `}` and trailing newline.
 Nodes and edges should be sorted according to ID.
+If a node is connected to another node more than once, two lines should be outputted.
 
 An [example output](./doc/pipeline_print_example.dot) might look like:
 
