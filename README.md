@@ -1,6 +1,13 @@
 # Assignment 3: A dataflow pipeline
 
 ## Changelog
+- (2023-04-13): Added some more clarifications:
+  - Extended deadline
+  - A major hint in the hints section for validation
+  - Solidified the requirements around a valid pipeline (added one clause)
+  - Fixed up the order of throwing exceptions in `pipeline::connect`
+  - Clarified when `node::connect` can receive a `nullptr`
+  - Added general wording improvements across the spec.
 - (2023-04-10): Added some clarifications:
   - output format for `operator<<` when a node is connected to another node through more than one slot.
   - Some rules about when a pipeline is valid or not.
@@ -21,7 +28,7 @@
 
 "Dataflow programming" is a programming paradigm where a program is modeled as a directed graph of data flowing between operations. This model has a number of benefits, especially when writing distributed programs operating on many parallel streams of data.
 
-In this assignment, you will be implementing a simplified dataflow pipeline, making use of both static polymorphism (templates) and dynamic polymorphism (virtual functions and inheritance).
+In this assignment, you will be implementing a simplified dataflow pipeline library, making use of both static polymorphism (templates) and dynamic polymorphism (virtual functions and inheritance). Users can then define their own types to be used with this library to perform useful computations.
 
 We represent computations as different types of a `component` template.
 
@@ -29,7 +36,7 @@ A `component<I, O>` has:
 - an _input_type_ `I`, a list of types `Ts...` it needs to do its job, represented as a `std::tuple<Ts...>`; and,
 - an _output_type_ `O`, which is the type of the result it produces.
 
-We refer to the inputs required for a `component` as _slots_, which are simply indices of some integral type.
+We refer to the inputs required for a `component` as _slots_, which are simply integral indices into the list of types needed by the component.
 For example, a component that requires an `int` and a `std::string` has two slots: slot **0** must be connected to a `component` that produces `int`s, and slot **1** must be connected to a `component` that produces `std::string`s.
 
 In addition, we have two types to simplify writing special kinds of components:
@@ -46,13 +53,13 @@ The bulk of the work is done by the `pipeline` type.
 
 A `pipeline` creates and manages `component`s, and sets up connections between them, ensuring that all slots are filled with appropriate types and outputs are passed on correctly.
 
-This should form a _dependency graph_, which is a special form of acyclic directed graph.
+This should form a connected _dependency graph_, which is a special form of acyclic directed graph.
 
 This is like a tree, where branches can rejoin later on.
 
 When run, a `pipeline` will poll each `component` in turn, such that every `component` is run after all its dependencies.
 That is, every `component` will be run only after it has input to operate on.
-The `pipeline` will finish once there is no more work to do.
+The `pipeline` will finish once there is no more work to do. Like a regular program, and component that can produce values infinitely will also cause the pipeline to run infinitely, but this is something avoided by the user of the `pipeline` rather than a problem for the pipeline itself.
 
 To be able to store and work with any kind of component, without needing to necessarily know the exact component we are working with, we also have two more types.
 A `producer<O>` generalises `component<I, O>` over "any component producing `O`s",
@@ -96,7 +103,7 @@ The following subsections name a type that you must implement in `src/pipeline.h
 You should use the declarations in the "Synopsis" code block to start you out when writing your solution.
 
 Note that the synopses are just starter code;
-- once again, we have not marked functions `const`, `virtual`, etc. for you.
+- once again, we have not marked functions `const`, `virtual`, `override`, or `noexcept`. for you.
 
 
 ### 3.1 `pipeline_error`
@@ -185,11 +192,12 @@ private:
   - **Notes**: This is a pure virtual function, and must be overriden by derived classes.
 - `void connect(const node *source, int slot);`
   - Connect `source` as the input to the given `slot`.
+  - If `source` is `nullptr`, signifies that this node should *disconnect* the existing connection for `slot`. A later call to `connect` with a non-null pointer will later fill that slot again.
   - **Preconditions**: `slot` is a valid index, and
     `source` is either a pointer to a `producer` of the correct type, or `nullptr`.
   - **Notes**: This is a pure virtual function, and must be overriden by derived classes.
 
-As a polymorphic base class, `node` should also have a `virtual` destructor.
+As a polymorphic base class, `node` should also have a public `virtual` destructor.
 
 
 ### 3.3 `producer`
@@ -219,7 +227,7 @@ A `component` is a single computation in a pipeline.
 It is parameterised on the `Input` that it takes, and the `Output` that it generates.
 
 An `Input` must be a `std::tuple` with one type for each slot.
-For example, a `component<std::tuple<int, int>, double>` takes two `int`s as input and produces one `double` as output.
+For example, a `component<std::tuple<int, char>, double>` takes one `int` and one `char` as input and produces one `double` as output. The slots are the positionals of the input tuple type: `int` is slot 0 and `char` is slot 1.
 These are accessible as member type aliases `input_type` and `output_type`, respectively.
 
 It is up to the `pipeline` to validate that components are correctly connected such that the types of their inputs and outputs match.
@@ -236,11 +244,11 @@ struct component : producer<Output> {
 
 These are helper types to assist users in implementing common component types.
 
-A `sink` consumes values but does not produce any; it is the end of a pipeline.
+A `sink` consumes values but does not produce any; it is the end of one branch of a pipeline.
 For simplicity we assume that a sink will only ever have one input slot.
 
 A `source` produces values but does not consume any; it is the start of a pipeline.
-Since this type has no slots, we should provide a default implementation for `connect` (to simplify user code).
+Since this type has no slots, we should provide a default implementation for `connect` (to simplify user code and ensure code can compile).
 
 Synopsis:
 ```cpp
@@ -265,7 +273,7 @@ This is the main type, implementing most of the functionality of the system.
 
 A `pipeline` connects arbitrary `node`s together in a data stream.
 Each tick, input is created from all sources, flows through intermediary nodes, and ends up at a sink, assuming that every stage succeeded.
-Any given `node` is polled at most once every tick.
+Any given `node` is polled at most once every tick. It is possible for a node to not be polled if a parent node polls as closed.
 
 The nodes and connections can be dynamically reconfigured, even between individual process ticks, or after running to completion (which may cause the pipeline to no longer be 'completed').
 
@@ -335,7 +343,7 @@ A `component` should:
 
 - `using node_id = /* unspecified */;`
   - An opaque handle to a node in the pipeline.
-    May be any type of your choice as long as it is ['regular'][https://en.cppreference.com/w/cpp/concepts/regular];
+    May be any type of your choice as long as it is ["regular"](https://en.cppreference.com/w/cpp/concepts/regular)
     that is, copyable, default-constructible, and equality-comparable.
     **Note**: we expect to be able to create a reasonable number of nodes. Your handle should be able to support at least 256 nodes in the pipeline.
   - We refer to a `node_id` as "invalid" if it is not a valid handle;
@@ -347,13 +355,13 @@ A `component` should:
 - The pipeline should **not** be copyable (any attempt to do so should be a compile error).
 - The pipeline **should** be movable; after `auto p2 = std::move(p1);`,
   `p2` should manage all the nodes and connections that `p1` used to,
-  and `p1` should be left in a valid (but unspecified) state.
+  and `p1` should be left in a valid (but unspecified) empty state. In this state, the pipeline should logically contain 0 nodes.
 - You may provide a destructor to clean up if necessary.
 
 #### 3.6.3 Node Management
 
 - `auto create_node<N>(Args&& ...args) -> node_id;`
-  - **Preconditions**: `N` is a valid node type (see [3.6.0](3.6.0)),
+  - **Preconditions**: `N` is a valid node type (see section 3.6.0),
     and can be constructed from the arguments `args`.
   - Allocates memory for a new `node` with concrete type `N`,
     constructed from the provided `args` parameter pack.
@@ -361,36 +369,36 @@ A `component` should:
   - **Returns**: a `node_id` that can be used as a handle
     to refer to the newly constructed node.
 
-- `void erase_node(node_id node);`
+- `void erase_node(node_id n_id);`
   - Remove the specified node from the pipeline.
     Disconnects it from any nodes it is currently connected to.
   - **Throws**: a `pipeline_error` for an invalid node ID.
-  - **Notes**: `node` is no longer a valid handle after it is erased.
+  - **Notes**: `n_id` is no longer a valid handle after it is erased.
 
-- `auto get_node(node_id node) -> node *;`
+- `auto get_node(node_id n_id) -> node *;`
   - **Returns**: A pointer to the specified node.
-    If `node` is invalid, returns `nullptr` instead.
+    If `n_id` is invalid, returns `nullptr` instead.
   - **Notes**: You may need more than one overload
     for proper `const`-correctness.
 
 #### 3.6.4 Connection Management
 
-- `void connect(node_id source, node_id dest, int slot);`
-  - Connect `source`'s output to `dest`'s input for the given `slot`.
+- `void connect(node_id src, node_id dst, int slot);`
+  - Connect `src`'s output to `dst`'s input for the given `slot`.
   - **Throws**: in order, if either handle is invalid,
     the destination node's slot is already full,
-    the source output type does not match the destination input type,
     the slot number indicated by `slot` does not exist,
+    the source output type does not match the destination slot's input type,
     throw the appropriate `pipeline_error`.
 
-- `void disconnect(node_id source, node_id dest);`
+- `void disconnect(node_id src, node_id dst);`
   - Remove all immediate connections between the given two nodes.
     If the provided nodes are not connected, nothing is done.
   - **Throws**: a `pipeline_error` if either handle is invalid.
 
-- `auto get_dependencies(node_id source) const -> std::vector<std::pair<node_id, int>>;`
-  - **Returns**: A list of all nodes immediately depending on `source`.
-    Each element is a pair `(node, slot)`, where `source`'s output
+- `auto get_dependencies(node_id src) const -> std::vector<std::pair<node_id, int>>;`
+  - **Returns**: A list of all nodes immediately depending on `src`.
+    Each element is a pair `(node, slot)`, where `src`'s output
     is connected to the given `slot` for the `node`.
   - **Throws**: A `pipeline_error` if `source` is invalid.
 
@@ -409,6 +417,7 @@ That is, `Y::input_type` is `std::tuple<>`.
     - All non-sink nodes must have at least one dependent.
     - There is at least 1 source node.
     - There is at least 1 sink node.
+    - There are no subpipelines i.e. completely disconnected sections of the dataflow from the main pipeline.
     - There are no cycles.
   - **Returns**: `true` if all above conditions hold, and `false` otherwise.
 
@@ -534,6 +543,7 @@ To that end, here are some tips for dealing with some commong problems:
 - [`if constexpr`][if_constexpr] is useful for making compile-time decisions.
 - Tools like [`typeid`][typeid], [`std::type_info`][type_info]/[`std::type_index`][type_index],
   and/or [`dynamic_cast`][dynamic_cast] may be useful to perform the validation required by `pipeline::connect`.
+- To successfully implement the validation required for `pipeline::connect`, you will need to store some kind of information in `pipeline::create_node` and use it in `pipeline::connect`. This information will likely require some kind of metaprogramming and runtime type information.
 - You may add any other `virtual` functions to `node` that you like.
   - Just make sure that they aren't pure virtual by the time we get past `component`.
 - The [`std::quoted`][quoted] manipulator may be handy for `operator<<(std::ostream &, const pipeline&)`.
@@ -658,7 +668,7 @@ Trust me, at least 1 person does it every term and I encourage you not to think 
 
 ## 8. Submission
 
-This assignment is due *Monday 17th of April 2023, 19:59:59*.
+This assignment is due *~~Monday 17th~~ Friday 21st of April 2023, 19:59:59*.
 
 Our systems automatically record the most recent push you make to your main branch. Therefore, to "submit" your code you simply need to make sure that your main branch (on the gitlab website) is the code that you want marked for this task.
 
