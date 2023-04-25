@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/Users/siqingzhang/Desktop/6771lab/ass3/cmake-build-debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -I/Users/siqingzhang/Desktop/6771lab/ass3/lib -g -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wall -Wextra -Werror -pedantic-errors -Wconversion -Wsign-conversion -Wdouble-promotion -Wcast-align -Wformat=2 -Wuninitialized -Wnull-dereference -Wnon-virtual-dtor -Woverloaded-virtual -Wdeprecated-copy-dtor -Wold-style-cast -Wno-self-assign-overloaded -Wno-self-move -Wsuggest-override -fstack-protector-strong -std=c++20 -o CMakeFiles/catch2_main.dir/lib/catch2_main.cpp.o -c /Users/siqingzhang/Desktop/6771lab/ass3/lib/catch2_main.cpp",
+  "file": "/Users/siqingzhang/Desktop/6771lab/ass3/lib/catch2_main.cpp"
+},
+{
+  "directory": "/Users/siqingzhang/Desktop/6771lab/ass3/cmake-build-debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -g -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wall -Wextra -Werror -pedantic-errors -Wconversion -Wsign-conversion -Wdouble-promotion -Wcast-align -Wformat=2 -Wuninitialized -Wnull-dereference -Wnon-virtual-dtor -Woverloaded-virtual -Wdeprecated-copy-dtor -Wold-style-cast -Wno-self-assign-overloaded -Wno-self-move -Wsuggest-override -fstack-protector-strong -std=c++20 -o CMakeFiles/pipeline.dir/src/pipeline.cpp.o -c /Users/siqingzhang/Desktop/6771lab/ass3/src/pipeline.cpp",
+  "file": "/Users/siqingzhang/Desktop/6771lab/ass3/src/pipeline.cpp"
+},
+{
+  "directory": "/Users/siqingzhang/Desktop/6771lab/ass3/cmake-build-debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -g -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wall -Wextra -Werror -pedantic-errors -Wconversion -Wsign-conversion -Wdouble-promotion -Wcast-align -Wformat=2 -Wuninitialized -Wnull-dereference -Wnon-virtual-dtor -Woverloaded-virtual -Wdeprecated-copy-dtor -Wold-style-cast -Wno-self-assign-overloaded -Wno-self-move -Wsuggest-override -fstack-protector-strong -std=c++20 -o CMakeFiles/client.dir/src/client.cpp.o -c /Users/siqingzhang/Desktop/6771lab/ass3/src/client.cpp",
+  "file": "/Users/siqingzhang/Desktop/6771lab/ass3/src/client.cpp"
+},
+{
+  "directory": "/Users/siqingzhang/Desktop/6771lab/ass3/cmake-build-debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -I/Users/siqingzhang/Desktop/6771lab/ass3/lib -g -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wall -Wextra -Werror -pedantic-errors -Wconversion -Wsign-conversion -Wdouble-promotion -Wcast-align -Wformat=2 -Wuninitialized -Wnull-dereference -Wnon-virtual-dtor -Woverloaded-virtual -Wdeprecated-copy-dtor -Wold-style-cast -Wno-self-assign-overloaded -Wno-self-move -Wsuggest-override -fstack-protector-strong -std=c++20 -o CMakeFiles/pipeline_test_exe.dir/src/pipeline.test.cpp.o -c /Users/siqingzhang/Desktop/6771lab/ass3/src/pipeline.test.cpp",
+  "file": "/Users/siqingzhang/Desktop/6771lab/ass3/src/pipeline.test.cpp"
+}
+]
