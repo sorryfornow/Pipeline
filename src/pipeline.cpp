@@ -364,7 +364,7 @@ auto ppl::pipeline::run() -> void {
 
 // Preconditions: None.
 // Print a graphical representation of the pipeline dependency graph to the given output stream, according to the rules above.
-std::ostream & ppl::operator<<(std::ostream & os, ppl::pipeline const & p) {
+std::ostream& ppl::operator<<(std::ostream & os, ppl::pipeline const & p) {
 	os << "digraph G {" << std::endl;
 	std::set<ppl::pipeline::node_id> nodes_sorted{};
 	for (auto& [id, _]: p.nodes_){

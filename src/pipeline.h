@@ -1,6 +1,7 @@
 #ifndef COMP6771_PIPELINE_H
 #define COMP6771_PIPELINE_H
 
+
 #include <unordered_map>
 #include <unordered_set>
 #include <algorithm>
@@ -15,9 +16,10 @@
 #include <utility>
 #include <vector>
 #include <typeindex>
+#include <memory>
 
 namespace ppl {
-
+	
 	// Errors that may occur in a pipeline.
 	enum class pipeline_error_kind {
 		// An expired node ID was provided.
@@ -252,7 +254,7 @@ namespace ppl {
 			//	 Note: if connections_[id][x] = id, then the current slot x is not connected to any node
 
 			return id_x;
-		};
+		}
 
 		void erase_node(node_id n_id){
 			if (this->nodes_.count(n_id) == 0){
@@ -292,7 +294,7 @@ namespace ppl {
 				// return nullptr;
 			}
 			return this->nodes_.at(n_id).get();
-		};
+		}
 
 		// 3.6.4
 		void connect(const node_id src_id, const node_id dst_id, const int slot){
@@ -330,7 +332,7 @@ namespace ppl {
 
 			// no need to change source/sink status since they are different class to component
 
-		};
+		}
 
 		void disconnect(const node_id src_id, const node_id dst_id){
 			if (this->nodes_.count(src_id) == 0 || this->nodes_.count(dst_id) == 0){
@@ -353,7 +355,7 @@ namespace ppl {
 			//	auto src_node = get_node(src_id);
 			auto dst_node = get_node(dst_id);
 			dst_node->connect(nullptr, s);
-		};
+		}
 
 		auto get_dependencies(node_id src) const -> std::vector<std::pair<node_id, int>>{
 			if (this->nodes_.count(src) == 0){
@@ -428,6 +430,7 @@ namespace ppl {
 		std::unordered_map<node_id, poll> node_status_{};
 	};
 
+	std::ostream& operator<<(std::ostream& os, const pipeline& p);
 } // namespace ppl
 
 #endif // COMP6771_PIPELINE_H
