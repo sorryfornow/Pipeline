@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="COMP6771_ASS3"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="catch2_main">
+				<Option output="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/libcatch2_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/lib"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 catch2_main"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="catch2_main/fast">
+				<Option output="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/libcatch2_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/lib"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 catch2_main/fast"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pipeline">
+				<Option output="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/libpipeline.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 pipeline"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pipeline/fast">
+				<Option output="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/libpipeline.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 pipeline/fast"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="client">
+				<Option output="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/client" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 client"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="client/fast">
+				<Option output="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/client" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 client/fast"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pipeline_test_exe">
+				<Option output="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/pipeline_test_exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/lib"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 pipeline_test_exe"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pipeline_test_exe/fast">
+				<Option output="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/pipeline_test_exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/lib"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 pipeline_test_exe/fast"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/lib/catch2_main.cpp">
+			<Option target="catch2_main"/>
+		</Unit>
+		<Unit filename="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/src/client.cpp">
+			<Option target="client"/>
+		</Unit>
+		<Unit filename="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/src/pipeline.cpp">
+			<Option target="pipeline"/>
+		</Unit>
+		<Unit filename="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/src/pipeline.h">
+			<Option target="pipeline"/>
+		</Unit>
+		<Unit filename="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/src/pipeline.test.cpp">
+			<Option target="pipeline_test_exe"/>
+		</Unit>
+		<Unit filename="/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

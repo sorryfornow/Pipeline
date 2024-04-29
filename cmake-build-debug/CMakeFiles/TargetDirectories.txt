@@ -1,7 +1,7 @@
-/Users/siqingzhang/Desktop/6771lab/ass3/cmake-build-debug/CMakeFiles/catch2_main.dir
-/Users/siqingzhang/Desktop/6771lab/ass3/cmake-build-debug/CMakeFiles/pipeline.dir
-/Users/siqingzhang/Desktop/6771lab/ass3/cmake-build-debug/CMakeFiles/client.dir
-/Users/siqingzhang/Desktop/6771lab/ass3/cmake-build-debug/CMakeFiles/pipeline_test_exe.dir
-/Users/siqingzhang/Desktop/6771lab/ass3/cmake-build-debug/CMakeFiles/test.dir
-/Users/siqingzhang/Desktop/6771lab/ass3/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/siqingzhang/Desktop/6771lab/ass3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/CMakeFiles/catch2_main.dir
+/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/CMakeFiles/pipeline.dir
+/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/CMakeFiles/client.dir
+/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/CMakeFiles/pipeline_test_exe.dir
+/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/CMakeFiles/test.dir
+/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/siqingzhang/Desktop/CppProgram/contents/projects/pipeline/cmake-build-debug/CMakeFiles/rebuild_cache.dir
